@@ -11,13 +11,13 @@ class App{
               $status;
               
     public function __construct(){ 
+        $config = new Config;
         $parse = new Parse();
         $url = $parse->url();
         //------- FIND AND SET THE CONTROLLER ----------//         
         if(empty($url[0])){
             unset($url[0]);
         }
-        $config = new Config;
         if(!$config->status('status.installed')){
             $this->controller = 'installerController';
         }        
