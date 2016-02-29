@@ -22,7 +22,8 @@ class App{
                 $this->controller = $url[1] . 'Controller';
                 unset($url[1]);
             }
-        }else{
+        }
+        if($this->controller = 'defaultController'){
             $this->default = true;
         }
         require_once CONTROLLERS . $this->controller . '.php';
