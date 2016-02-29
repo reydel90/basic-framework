@@ -16,7 +16,7 @@ class App{
         if(empty($url[0])){
             unset($url[0]);
         }
-        
-        echo $this->controller;
+
+        echo CONTROLLERS . $this->controller;
     }
 }
