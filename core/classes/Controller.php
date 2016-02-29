@@ -1,5 +1,5 @@
 <?php 
-namespace base\core\classes;
+namespace core\classes;
 class Controller{
     protected $template = 'default';
     
