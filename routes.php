@@ -10,5 +10,4 @@ define('VIEWS',       APP  . 'views'       . DS);
 define('CONTROLLERS', APP  . 'controllers' . DS);
 define('ASSETS',      APP  . 'assets'      . DS);
 
-echo 'routes is ready';
 require_once APP . 'init.php';
