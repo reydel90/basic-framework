@@ -13,6 +13,9 @@ class App{
     public function __construct(){ 
         $parse = new Parse();
         $url = $parse->url();
+        if(empty($url[0])){
+            unset($url[0]);
+        }
         print_r($url);
     }
 }
