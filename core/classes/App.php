@@ -11,6 +11,8 @@ class App{
               $status;
               
     public function __construct(){ 
-        echo 'works app!!';
+        $parse = new Parse();
+        $url = $parse->url();
+        print_r($url);
     }
 }
