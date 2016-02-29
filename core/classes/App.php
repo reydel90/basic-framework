@@ -16,7 +16,13 @@ class App{
         if(empty($url[0])){
             unset($url[0]);
         }
-
-        echo CONTROLLERS . $this->controller;
+        if(!empty($url[1])){
+            if(file_exists(CONTROLLERS . $url[1] . 'Controller.php')){
+                $this->controller = $url[1] . 'Controller';
+            }else{
+                $this->controller = $this->controller . 'Controller';
+            }
+        }
+        echo $this->controller;
     }
 }
