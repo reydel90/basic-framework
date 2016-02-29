@@ -3,4 +3,6 @@ use core\classes\Parse as Parse;
 
 require_once VENDOR . 'autoload.php';
 
-echo 'init works';
+$parse = new Parse();
+$url = $parse->url();
+print_r($url);
