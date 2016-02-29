@@ -6,7 +6,8 @@ class installerController extends Controller{
 
     public function index(){
         self::check();
-        echo 'Hello.. installer for this app';  
+        echo 'Hello.. installer for this app'; 
+        $this->view('installer/index'); 
     }
     public function check(){ // si esta instalada la app redirecciona a la pagina principal!!
         $config = new Config;
