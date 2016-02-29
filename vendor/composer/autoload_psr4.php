@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'core\\' => array($baseDir . '/core'),
+    'app\\' => array($baseDir . '/application'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
     'Illuminate\\Support\\' => array($vendorDir . '/illuminate/support'),
