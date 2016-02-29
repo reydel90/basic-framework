@@ -1,8 +1,7 @@
 <?php 
+use core\classes\App as App;
 use core\classes\Parse as Parse;
 
 require_once VENDOR . 'autoload.php';
 
-$parse = new Parse();
-$url = $parse->url();
-print_r($url);
+$app = new App();
