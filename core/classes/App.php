@@ -21,19 +21,20 @@ class App{
             if(file_exists(CONTROLLERS . $url[1] . 'Controller.php')){
                 $this->controller = $url[1] . 'Controller';
                 unset($url[1]);
+            }else{
+                $this->default = true;
             }
         }
         require_once CONTROLLERS . $this->controller . '.php';
         $this->controller = new $this->controller;
         
         //-------   FIND AND SET THE METHOD  ----------// 
-        if($this->controller = 'defaultController'){
+        if($this->default){
             if(isset($url[1])){
                 $this->method = $url[1];
                 unset($url[1]);                                      
             }
-        }
-        if(isset($url[2])){
+        }else if(isset($url[2])){
             $this->method = $url[2];
             unset($url[2]);                
         }
