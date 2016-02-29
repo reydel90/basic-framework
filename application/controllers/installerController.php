@@ -13,13 +13,13 @@ class installerController extends Controller{
         echo 'Hello.. installer for this app'; 
         if(Input::exists()){
             if(!empty(Input::get('appname'))){
-                $this->username = Input::get('appname');
+                $this->appname = Input::get('appname');
             }
             if(!empty(Input::get('username'))){
                 $this->username = Input::get('username');
             }
             if(!empty(Input::get('password'))){
-                $this->username = Input::get('password');
+                $this->password = Input::get('password');
             }            
         }
         echo $this->appname  . '<br>';
