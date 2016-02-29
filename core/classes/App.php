@@ -19,14 +19,15 @@ class App{
         }
         if(!empty($url[1])){
             if(file_exists(CONTROLLERS . $url[1] . 'Controller.php')){
-                $this->controller = $url[1];
+                $this->controller = $url[1] . 'Controller';
                 unset($url[1]);
             }
         }else{
+            $this->controller = $this->controller . 'Controller';
             $this->default = true;
         }
         require_once CONTROLLERS . $this->controller . 'Controller.php';
-        $this->controller . 'Controller' = new $this->controller . 'Controller';
+        $this->controller = new $this->controller;
         
         //-------   FIND AND SET THE METHOD  ----------// 
         if($this->default){
