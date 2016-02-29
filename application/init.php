@@ -6,5 +6,8 @@ use core\classes\Controller as Controller;
 
 require_once VENDOR . 'autoload.php';
 
-echo Config::status('status.mode');
+$config = new Config;
+
 $app = new App();
+
+echo $config->status('status.mode');
