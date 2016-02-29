@@ -4,7 +4,7 @@ use core\classes\Parse as Parse;
 //use core\classes\Config as Config;
 
 class App{
-    protected $controller = 'default',
+    protected $controller = 'defaultController',
               $method = 'index',
               $params = [],
               $default = false,
@@ -23,10 +23,9 @@ class App{
                 unset($url[1]);
             }
         }else{
-            $this->controller = $this->controller . 'Controller';
             $this->default = true;
         }
-        require_once CONTROLLERS . $this->controller . 'Controller.php';
+        require_once CONTROLLERS . $this->controller . '.php';
         $this->controller = new $this->controller;
         
         //-------   FIND AND SET THE METHOD  ----------// 
