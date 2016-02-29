@@ -23,7 +23,7 @@ class App{
         }else{
             $this->default = true;
         }
-        print_r($this->default);
+        var_dump($this->default);
         echo $this->controller . 'Controller';
     }
 }
