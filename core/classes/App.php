@@ -12,6 +12,7 @@ class App{
               
     public function __construct(){ 
         $parse = new Parse();
+        $config = new Config;
         $url = $parse->url();
         //------- FIND AND SET THE CONTROLLER ----------//         
         if(empty($url[0])){
