@@ -23,19 +23,17 @@ class App{
                 unset($url[1]);
             }
         }
-        if($this->controller = 'defaultController'){
-            $this->default = true;
-        }
         require_once CONTROLLERS . $this->controller . '.php';
         $this->controller = new $this->controller;
         
         //-------   FIND AND SET THE METHOD  ----------// 
-        if($this->default){
+        if($this->controller = 'defaultController'){
             if(isset($url[1])){
                 $this->method = $url[1];
                 unset($url[1]);                                      
             }
-        }else if(isset($url[2])){
+        }
+        if(isset($url[2])){
             $this->method = $url[2];
             unset($url[2]);                
         }
