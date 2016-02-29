@@ -1,7 +1,6 @@
 <?php
 namespace core\classes;
 use core\classes\Parse as Parse;
-use core\classes\Config as Config;
 
 class App{
     protected $controller = 'defaultController',
@@ -11,16 +10,13 @@ class App{
               $status;
               
     public function __construct(){ 
-        $config = new Config;
         $parse = new Parse();
         $url = $parse->url();
         //------- FIND AND SET THE CONTROLLER ----------//         
         if(empty($url[0])){
             unset($url[0]);
         }
-        if(!$config->status('status.installed')){
-            $this->controller = 'installerController';
-        }        
+       
         if(!empty($url[1])){
             if(file_exists(CONTROLLERS . $url[1] . 'Controller.php')){
                 $this->controller = $url[1] . 'Controller';
