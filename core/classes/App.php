@@ -26,7 +26,7 @@ class App{
             $this->default = true;
         }
         require_once CONTROLLERS . $this->controller . 'Controller.php';
-        $this->controller = new $this->controller;
+        $this->controller . 'Controller' = new $this->controller . 'Controller';
         
         //-------   FIND AND SET THE METHOD  ----------// 
         if($this->default){
