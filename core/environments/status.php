@@ -5,6 +5,6 @@ return [
     ],
     'status' => [
         'mode' => 'development',
-        'installed' => true
+        'installed' => false
     ]
 ];
