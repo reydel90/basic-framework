@@ -18,11 +18,12 @@ class App{
         }
         if(!empty($url[1])){
             if(file_exists(CONTROLLERS . $url[1] . 'Controller.php')){
-                $this->controller = $url[1] . 'Controller';
-            }else{
-                $this->controller = $this->controller . 'Controller';
+                $this->controller = $url[1];
             }
+        }else{
+            $this->default = true;
         }
-        echo $this->controller;
+        print_r($this->default);
+        echo $this->controller . 'Controller';
     }
 }
