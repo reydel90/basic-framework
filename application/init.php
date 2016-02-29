@@ -10,4 +10,4 @@ $config = new Config;
 
 $app = new App();
 
-echo $config->status('status.mode');
+//echo $config->status('status.mode');
