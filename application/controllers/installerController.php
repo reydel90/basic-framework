@@ -28,13 +28,6 @@ class installerController extends Controller{
             }
             echo $line3 . '<br>'
         }
-        $file = ENV . 'development.php';
-        $content = file_get_contents($file);
-        $result = str_replace('app.name', 'testapplication', $content);
-        echo $result;
-
-
-
         $this->view('installer/index'); 
     }
     public function check(){ // si esta instalada la app redirecciona a la pagina principal!!
