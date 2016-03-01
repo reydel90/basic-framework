@@ -20,7 +20,11 @@ class installerController extends Controller{
             }
             if(!empty(Input::get('password'))){
                 $this->password = Input::get('password');
-            }            
+            } 
+            $file = ENV . 'development.php';
+            $content = file_get_contents($file);
+            $result = str_replace('app.name', $this->appname, $content);
+            echo $result;                       
         }
 
 
