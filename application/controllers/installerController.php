@@ -12,22 +12,20 @@ class installerController extends Controller{
         self::check();
         echo 'Hello.. installer for this app'; 
         if(Input::exists()){
-            $file = ENV . 'development.php';
-            $content = file_get_contents($file);
             if(!empty(Input::get('appname'))){
                 $this->appname = Input::get('appname');
-                $line1 = str_replace('app.name', $this->appname, $content);
             }
             if(!empty(Input::get('username'))){
                 $this->username = Input::get('username');
-                $line2 = str_replace('app.user', $this->username, $content);
             }
             if(!empty(Input::get('password'))){
                 $this->password = Input::get('password');
-                $line3 = str_replace('app.pass', $this->password, $content);
-            }
-            echo $line3 . '<br>'
+            }            
         }
+
+
+
+
         $this->view('installer/index'); 
     }
     public function check(){ // si esta instalada la app redirecciona a la pagina principal!!
@@ -38,6 +36,9 @@ class installerController extends Controller{
     }
 
     public function read(){
-
+        $file = ENV . 'development.php';
+        $content = file_get_contents($file);
+        $result = str_replace('app.name', 'testapplication', $content);
+        echo $result;
     }
 }
