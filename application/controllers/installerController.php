@@ -22,9 +22,7 @@ class installerController extends Controller{
                 $this->password = Input::get('password');
             }            
         }
-        echo $this->appname  . '<br>';
-        echo $this->username . '<br>';
-        echo $this->password . '<br>';
+
 
 
 
@@ -38,8 +36,8 @@ class installerController extends Controller{
     }
 
     public function read(){
-        $myfile = fopen(ENV . 'production.php', 'r') or die('Unable to open file!');
-        echo fread($myfile,filesize(ENV . 'production.php'));
-        fclose($myfile);
+        $file = ENV . 'development.php';
+        $content = file_get_contents($file);
+        echo $content;
     }
 }
