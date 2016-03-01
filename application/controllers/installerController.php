@@ -42,8 +42,8 @@ class installerController extends Controller{
     }
 
     public function read(){
-        $file = ENV . 'application.php';
-        $content = file_get_contents($file);
+        $fileRoute = ENV;
+        $content = file_get_contents($fileRoute . 'application.php');
         echo $content;
     }
 }
