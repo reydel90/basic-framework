@@ -1,7 +1,7 @@
 <?php
 return [
     'app' => [
-        'name' => 'Base framework development'
+        'name' => 'app.name'
     ],
     'status' => [
         'mode' => 'development'

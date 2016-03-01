@@ -38,6 +38,7 @@ class installerController extends Controller{
     public function read(){
         $file = ENV . 'development.php';
         $content = file_get_contents($file);
-        echo $content;
+        $result = str_replace('app.name', 'testapplication', $content);
+        echo $result;
     }
 }
