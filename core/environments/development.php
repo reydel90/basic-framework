@@ -1,9 +1,11 @@
 <?php
 return [
     'app' => [
-        'name' => 'app.name'
+        'name' => 'app.name',
+        'user' => 'app.user',
+        'pass' => 'app.pass'
     ],
     'status' => [
-        'mode' => 'development'
+        'mode' => 'status.mode'
     ]
 ];
