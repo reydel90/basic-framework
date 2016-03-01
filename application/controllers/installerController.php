@@ -28,7 +28,8 @@ class installerController extends Controller{
                 array($this->appname, $this->username, $this->password),
                 $content
             );
-            echo $result;                       
+            file_put_contents($file, $result);
+            echo $content;  
         }
         $this->view('installer/index'); 
     }
@@ -42,7 +43,6 @@ class installerController extends Controller{
     public function read(){
         $file = ENV . 'development.php';
         $content = file_get_contents($file);
-        $result = str_replace('app.name', 'testapplication', $content);
-        echo $result;
+        echo $content;
     }
 }
