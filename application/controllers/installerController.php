@@ -28,13 +28,10 @@ class installerController extends Controller{
                 array($this->appname, $this->username, $this->password),
                 $fileContents
             );
-            $out_file = fopen($fileRoute, 'w');
+            $out_file = fopen($fileRoute, 'w+');
             fwrite($out_file, $fileContents);
             fclose($out_file);           
         }
-        $fileRoute = ENV . 'development.php';
-        $read = file_get_contents($fileRoute);
-        echo $read;
         $this->view('installer/index'); 
     }
     public function check(){ // si esta instalada la app redirecciona a la pagina principal!!
