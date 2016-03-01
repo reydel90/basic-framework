@@ -24,7 +24,7 @@ class installerController extends Controller{
             $fileRoute = ENV . 'development.php';
             $in_file = fopen($fileRoute, 'r');
             $fileContents = fgets($in_file, filesize($fileRoute));
-            $fileContents = preg_replace(
+            $fileContents = str_replace(
                 array('app.name','app.user','app.pass'),
                 array($this->appname, $this->username, $this->password),
                 $fileContents
