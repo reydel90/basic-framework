@@ -22,18 +22,15 @@ class installerController extends Controller{
                 $this->password = Input::get('password');
             } 
             $fileRoute = ENV . 'development.php';
-            $in_file = fopen($fileRoute, 'r');
-            $fileContents = fgets($in_file, filesize($fileRoute));
+            $fileRead = file_get_contents($fileRoute);
             $fileContents = str_replace(
                 array('app.name','app.user','app.pass'),
                 array($this->appname, $this->username, $this->password),
                 $fileContents
             );
-            fclose($in_file);
             $out_file = fopen($fileRoute, 'w');
             fwrite($out_file, $fileContents);
-            fclose($out_file);
-            
+            fclose($out_file);           
         }
         $fileRoute = ENV . 'development.php';
         $read = file_get_contents($fileRoute);
