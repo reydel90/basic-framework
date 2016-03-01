@@ -25,6 +25,9 @@ class installerController extends Controller{
         echo $this->appname  . '<br>';
         echo $this->username . '<br>';
         echo $this->password . '<br>';
+
+
+
         $this->view('installer/index'); 
     }
     public function check(){ // si esta instalada la app redirecciona a la pagina principal!!
@@ -32,5 +35,11 @@ class installerController extends Controller{
         if($config->status('status.installed')){
             header('location: http://application-test.no-ip.org/'); 
         }
+    }
+
+    public function read(){
+        $myfile = fopen(ENV . 'production.php', 'r') or die('Unable to open file!');
+        echo fread($myfile,filesize(ENV . 'production.php'));
+        fclose($myfile);
     }
 }
