@@ -21,16 +21,23 @@ class installerController extends Controller{
             if(!empty(Input::get('password'))){
                 $this->password = Input::get('password');
             } 
-            $file = ENV . 'development.php';
-            $content = file_get_contents($file);
-            $result = str_replace(
+            $fileRoute = ENV . 'development.php';
+            $in_file = fopen($fileRoute, 'r');
+            $fileContents = fgets($in_file, filesize($fileRoute));
+            $fileContents = preg_replace(
                 array('app.name','app.user','app.pass'),
                 array($this->appname, $this->username, $this->password),
-                $content
+                $fileContents
             );
-            file_put_contents($file, $result);
-            echo $content;  
+            fclose($in_file);
+            $out_file = fopen($fileRoute, 'w');
+            fwrite($out_file, $fileContents);
+            fclose($out_file);
+            
         }
+        $fileRoute = ENV . 'development.php';
+        $read = file_get_contents($fileRoute);
+        echo $read;
         $this->view('installer/index'); 
     }
     public function check(){ // si esta instalada la app redirecciona a la pagina principal!!
